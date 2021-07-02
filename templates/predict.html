@@ -1,0 +1,20 @@
+{% extends "main_page.html" %}
+{% block main %}
+<p> This page could make prediction of next value of traffic at predict endpoint based on last 10 seconds traffic.</p>
+<form action="/predict" method="post">
+    {{ form.crsf_token }}
+    {{ form.predict_button}}
+
+</form>
+{% if datetime_pred  %}
+    <h4> Prediction time (for last value in record): </h4>
+    <h5> {{ datetime_pred }}</h5>
+{% endif %}
+
+{% if for_now_hardcode  %}
+    <h4> Prediction result from the model: </h4>
+    <h5> {{ for_now_hardcode }}</h5>
+{% endif %}
+
+
+{% endblock %}
